@@ -1,0 +1,56 @@
+Angular CLI 
+potrzebny node.js - zainstalowaæ
+CMD
+npm install -g @angular/cli - instalacja cli
+cd (sciezka gdzie ma sie znajdowac projekt)
+ng new (nazwa projektu) - stworzy projekt w folderze
+cd (nazwa projektu) - przejscie do folderu z projektem
+ng serve - uruchomienie projektu
+
+LOCALHOST:42000 - domyslny adres pod ktorym znajduje siê stworzony projekt.
+
+INSTALACJA BOOTStRAP DO PROJEKTU 
+
+w terminalu:
+- przejsc do folderu z projektem
+- npm install boostrap --serve
+- w pliku .angular-cli.json dodaæ :
+	
+	 "styles": [
+
+		"styles.css",
+
+		"../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      
+			],
+- zrestartowac ng serve poprez ctrl+c a potem ng serve
+
+BUILT IN DIRECTIVES 
+
+*ngIf=""
+*ngiF="(cos); else (cos)"
+
+ngStyle
+
+TWORZENIE NOWEGO COMPONENTU Z POZIOMU TERMINALA
+
+ng generate component (nazwa)
+skrót ng g c (nazwa)
+
+TWO WAYS EVENT BINDING
+
+1. poprzez pobieranie wartosci z inputu do funkcji
+
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+
+<p>{{serverName}}</p>
+
+onUpdateServerName(event: Event){
+    this.serverName = (<HTMLInputElement>event.target).value;
+
+  }
+
+2. poprzez ngModel
+
+<input type="text" class="form-control [(ngModel)]="serverName">
+<p>{{serverName}}</p>
