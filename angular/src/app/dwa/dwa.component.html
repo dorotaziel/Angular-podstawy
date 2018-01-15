@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="name">
+<p>{{name}}</p>
+
+
+<button class="btn btn-danger" [disabled]="!allowDanger" (click)="onDanger()">{{getDangerStatus()}}</button>
+<h1>{{dangerLevelStatus}}</h1>
+

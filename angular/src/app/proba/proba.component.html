@@ -1,0 +1,10 @@
+<label>Nazwij swój server!</label>
+<input type="text" class="form-control" [(ngModel)]="nazwa">
+<button class="btn" [ngStyle]="{color: getColor()}" [ngClass]="{inactive: allowCreate === false, active: allowCreate === true}" [disabled]="!allowCreate" (click)="onCreateServer()">Stworz serwer</button>
+
+<p *ngIf="serverCreated; else noServer">Utworzono server o nazwie {{nazwa}}</p>
+<ng-template #noServer>
+    <p>Nie utworzono żadnego serwera!</p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>

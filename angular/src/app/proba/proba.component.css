@@ -1,0 +1,7 @@
+.inactive{
+    background-color: firebrick;
+}
+
+.active{
+    background-color: lawngreen;
+}

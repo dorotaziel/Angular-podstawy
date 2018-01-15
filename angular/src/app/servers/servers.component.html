@@ -1,0 +1,12 @@
+
+
+
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onNewServer()">New Server </button>
+
+<h1>{{serverCreationStatus}}</h1>
+
+
+
+
