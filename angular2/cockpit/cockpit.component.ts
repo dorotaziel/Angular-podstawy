@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { setTimeout } from 'timers';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-cockpit',
@@ -7,33 +8,24 @@ import { setTimeout } from 'timers';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
+  @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   newServerName = '';
   newServerContent = '';
-  allowButton = false;
 
 
   constructor() { 
-    setTimeout(() =>{
-      this.allowButton = true;
-    }, 2000)
   }
 
   ngOnInit() {
   }
 
   onAddServer() {
-  //  this.serverElements.push({
-  //    type: 'server',
-  //    name: this.newServerName,
-  //    content: this.newServerContent
-  //  });
+    this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
+}
+
+onAddBlueprint() {
+  this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
+}
   }
 
-  onAddBlueprint() {
-  //  this.serverElements.push({
-   //   type: 'blueprint',
- //     name: this.newServerName,
- //     content: this.newServerContent
-    };
-  }
-}
